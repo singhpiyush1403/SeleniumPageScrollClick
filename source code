@@ -1,0 +1,21 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class PerformPageDown {
+
+	public static void main(String[] args) {
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		driver.findElement(By.className("_8esh")).click();
+		
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+
+	}
+
+}
